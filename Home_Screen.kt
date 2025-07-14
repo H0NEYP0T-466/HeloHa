@@ -34,8 +34,6 @@ fun HomeScreen(navController: NavController) {
     val auth = FirebaseAuth.getInstance()
     val database = FirebaseDatabase.getInstance().getReference("group_chat")
     val currentUser = auth.currentUser
-
-    // Fetch user's name
     var currentUserName by remember { mutableStateOf("...") }
     LaunchedEffect(currentUser) {
         currentUser?.uid?.let { uid ->
